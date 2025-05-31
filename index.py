@@ -2,6 +2,7 @@
 # Author : xy_cloud
 import base64
 import io
+import time
 
 from flask import Flask, request, render_template
 import requests
@@ -72,15 +73,16 @@ class DATA_READER(object):
         return str(rank1), str(top10), str(top100)
 
 
-def replace_file_content(file_path, mapping):
-    with open(file_path, 'r', encoding='utf-8') as f:
-        file_content = f.read()
-
-    pattern = re.compile(r'{{(.*?)}}')
-    file_content = pattern.sub(lambda match: mapping.get(match.group(1)), file_content)
-
-    with open('../output.svg', 'w', encoding='utf-8') as f:
-        f.write(file_content)
+#
+# def replace_file_content(file_path, mapping):
+#     with open(file_path, 'r', encoding='utf-8') as f:
+#         file_content = f.read()
+#
+#     pattern = re.compile(r'{{(.*?)}}')
+#     file_content = pattern.sub(lambda match: mapping.get(match.group(1)), file_content)
+#
+#     with open('../output.svg', 'w', encoding='utf-8') as f:
+#         f.write(file_content)
 
 
 def get_map_value(key):
@@ -696,6 +698,8 @@ def getsvg():
 @app.route("/skinjson", methods=["GET"])
 def getskinjson():
     return requests.get('https://ddnet.org/skins/skin/skins.json').text
+
+
 @app.route("/ghskinjson", methods=["GET"])
 def getghskinjson():
     return requests.get('https://api.github.com/repos/ddnet/ddnet/contents/data/skins').text

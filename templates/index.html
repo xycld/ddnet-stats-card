@@ -1,43 +1,46 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>DDNet Stats Card</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DDNet 统计卡片生成器 | DDNet Stats Card Generator</title>
     <link rel="stylesheet" href="./static/style.css">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">
 </head>
 <body>
+    <div class="container" id="container">
+        <section id="preview" aria-label="预览区域">
+            <h2 style="text-align: center; margin-bottom: 20px; color: #475569; font-size: 24px; font-weight: 600;">
+                🎨 预览 & 生成
+            </h2>
+            <div class="card-preview" role="img" aria-label="卡片预览">
+                <div style="color: #94a3b8; text-align: center;">
+                    <div style="font-size: 48px; margin-bottom: 10px;">🎮</div>
+                    <div>请填写信息并点击生成</div>
+                </div>
+            </div>
+        </section>
 
-<div class="container" id="container">
-    <div style="border: #ff5ef6 2px solid;border-radius: 12px;width: auto;display: block;padding: 10px;margin: 10px;" id="preview">
-        <div class="card-preview">
+        <section id="inputform" aria-label="配置区域">
+            <h2 style="text-align: center; margin-bottom: 25px; color: #475569; font-size: 24px; font-weight: 600;">
+                ⚙️ 配置选项
+            </h2>
+            
+            <div class="inputbox">
+                <input type="text" name="nickname" placeholder="输入用户名 (Username)" autocomplete="off"/>
+            </div>
+            
+            <div class="inputbox">
+                <input type="text" name="team" placeholder="输入战队名称 (Team)" autocomplete="off"/>
+            </div>
+            
+            <div class="inputbox">
+                <input type="text" id="searchInput" placeholder="🔍 搜索皮肤名称... (Search skins)" autocomplete="off">
+            </div>
+        </section>
+    </div>
 
-        </div>
-    </div>
-    <div style="border: #ff5ef6 2px solid;border-radius: 12px;width: auto;display: block;padding: 10px;margin: 10px;" id="inputform">
-        <div class="username inputbox">
-            <label>
-                <input type="text" name="nickname" placeholder="用户名"/>
-                <span class="spanleft"></span>
-                <span class="spanright"></span>
-            </label>
-        </div>
-        <div class="team inputbox">
-            <label>
-                <input type="text" name="team" placeholder="战队"/>
-                <span class="spanleft"></span>
-                <span class="spanright"></span>
-            </label>
-        </div>
-        <div class="skin inputbox">
-            <label for="searchInput">
-                <input type="text" id="searchInput" placeholder="搜索皮肤名称...">
-                <span class="spanleft"></span>
-                <span class="spanright"></span>
-            </label>
-        </div>
-    </div>
-</div>
-<script src="./static/tee.js"></script>
-<script src="./static/script.js"></script>
+    <script src="./static/tee.js"></script>
+    <script src="./static/script.js"></script>
 </body>
 </html>
